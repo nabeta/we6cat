@@ -1,0 +1,33 @@
+// Place all the styles related to the Books controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{
+  font-family: monospace;
+}
+
+input[type="text"]{
+  width: 300px;
+}
+
+span.label, p.label{
+  width: 400px;
+}
+
+ol, ul{
+  margin-left: 1em;
+  line-height: 2em;
+}
+
+div.isbd{
+  margin-top: 1em;
+}
+
+div#footer, div.isbd{
+  line-height: 1.5em;
+}
+
+div#notice{
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}

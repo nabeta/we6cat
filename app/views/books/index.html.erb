@@ -1,0 +1,86 @@
+<% unless @books %>
+
+<h1>We6cat</h1>
+
+<hr />
+
+<div><%= flash[:notice] %></div>
+
+<%= form_for books_url, :method => :get do |f| %>
+  <input type="radio" name="type" value="0" id="type" checked="checked" />全資料
+  <input type="radio" name="type" value="1" />図書
+  <input type="radio" name="type" value="2" />雑誌
+  <table>
+    <tr>
+      <td>タイトル・ワード</td>
+      <td>:<%= text_field_tag 'title' %></td>
+    </tr>
+    <tr>
+      <td>著者名</td>
+      <td>:<%= text_field_tag 'author' %></td>
+    </tr>
+    <tr>
+      <td>出版者</td>
+      <td>:<%= text_field_tag 'publisher' %></td>
+    </tr>
+    <tr>
+      <td>出版年</td>
+      <td>:<%= text_field_tag 'pub_year' %></td>
+    </tr>
+    <tr>
+      <td>標準番号(ISBN)</td>
+      <td>:<%= text_field_tag 'isbn' %></td>
+    </tr>
+    <tr>
+      <td>標準番号(ISSN)</td>
+      <td>:<%= text_field_tag 'issn' %></td>
+    </tr>
+    <tr>
+      <td>フリーワード</td>
+      <td>:<%= text_field_tag 'freeword' %></td>
+    </tr>
+    <!--
+    <tr>
+      <td>フルタイトル</td>
+      <td>:<%= text_field_tag 'fulltitle' %></td>
+    </tr>
+    -->
+    <tr>
+      <td>
+        <%= f.submit '検索開始' %>
+        <%= f.submit 'リセット', :type => 'reset' %>
+      </td>
+      <td></td>
+    </tr>
+  </table>
+  <script type="text/javascript">
+    $(function(){$('#type').focus()})
+  </script>
+<% end %>
+
+<hr />
+
+<% else %>
+
+  <h1>一覧表示</h1>
+
+  <p>該当件数は <%= @total_count %> 件です</p>
+
+  <hr />
+  <div>[<%= link_to '検索画面に戻る', root_path %>]</div>
+
+
+<ol start="<%= @start_record %>">
+  <% @books.each do |book| %>
+    <li><%= link_to book.title, book_path(:id => ncid(book.link)) %>. -- <%= book.publisher %>, <%= book.pub_date %>.
+    <%= link_to '(CiNii Books)', "http://ci.nii.ac.jp/ncid/#{ncid(book.link)}" %></li>
+  <% end %>
+</ol>
+
+<%= paginate(@books) %>
+
+<hr />
+
+<% end %>
+
+<%= render 'footer' %>

@@ -1,0 +1,32 @@
+<pre>
+<%= @book[0].strip %> -- <%= @book[1].strip %> -- (<%= @ncid %>)
+  <%= @book[2].strip %>
+  <%= @book[3].strip %>
+  注記: <%= @book[4] %> -- <%= @book[5] %>
+  ISBN: <%= @book[6].split(';')[0].strip.gsub(/^ISBN /, '') %>
+  <%= @subject[0].strip.gsub(/^Author Heading\(s\)/, '著者標目') %>
+  <%= @subject[1].strip.gsub(/^Classification\(s\)/, '分類') %>
+  <%= @subject[2].strip.gsub(/^Subject Heading\(s\)/, '件名') %>
+</pre>
+
+<hr>
+
+<p>所蔵図書館 <%= @holdings.size %></p>
+
+<ul>
+  <% @holdings.each do |holding| %>
+    <li><%= link_to holding.at('./foaf:Organization/foaf:name').content, holding.at('./foaf:Organization[@rdf:about]').attributes['about'].content %>
+    <%= link_to holding.at('./foaf:Organization/rdfs:seeAlso[@rdf:resource]').attributes['resource'].try(:content), 'OPAC' if holding.at('./foaf:Organization/rdfs:seeAlso[@rdf:resource]') %></li>
+  <% end %>
+</ul>
+
+<ul>
+  <% @book.each_with_index do |b, i| %>
+    <li><%= i %>. <%= b %></li>
+  <% end %>
+</ul>
+<ul>
+  <% @subject.each_with_index do |b, i| %>
+    <li><%= i %>. <%= b %></li>
+  <% end %>
+</ul>

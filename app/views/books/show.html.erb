@@ -1,0 +1,29 @@
+<h1>詳細表示</h1>
+
+<hr />
+
+<%= link_to '検索画面に戻る', root_path %>
+
+<div class="isbd">
+<% @book.each_with_index do |row, i| %>
+  <% row.split('--').each do |r| %>
+    <%= r %><br />
+  <% end %>
+  <br />
+<% end %>
+</div>
+
+<hr />
+
+<p>所蔵図書館 <%= @holdings.size %></p>
+
+<ul>
+  <% @holdings.each do |holding| %>
+    <li><%= link_to holding.at('./foaf:Organization/foaf:name').content, holding.at('./foaf:Organization[@rdf:about]').attributes['about'].content %>
+    <%= link_to '(OPAC)', holding.at('./foaf:Organization/rdfs:seeAlso[@rdf:resource]').attributes['resource'].try(:content) if holding.at('./foaf:Organization/rdfs:seeAlso[@rdf:resource]') %></li>
+  <% end %>
+</ul>
+
+<hr>
+
+<%= render 'footer' %>
