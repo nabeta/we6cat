@@ -1,29 +1,3 @@
 = We6cat
-NACSIS Webcatのインターフェースを、CiNii BooksのWebAPIを使って（ある程度）再現します。
 
-== Webcatとの違い
-大きな違いとして以下のものがあります。
-
-* 検索結果の一覧表示を20件ずつ表示するようにしています。
-* 表示される書誌情報は、CiNii Booksから取得したISBDを整形して表示しており、NACSIS Webcatでの表示と異なったものになっています。
-* 標準番号のフォームがISBNとISSNで別になっています。また、フルタイトルのフォームはありません。これらはCiNii BooksのWebAPIの仕様にあわせるのが難しかったためです。
-* 所蔵機関の短縮名表示はありません。
-* 所蔵機関での請求記号は表示されません。かわりに、その機関のOPACへのリンクが利用できる場合、それを表示するようにしています。
-
-== インストール
-
-Ruby 1.9.3以上、Ruby on Rails 3.2.12以上を必要とします。
-
- $ git clone git://github.com/nabeta/we6cat.git
- $ cd we6cat
- $ bundle install
- $ cp config/application.yml.sample config/application.yml
- $ cp config/initializers/secret_token.rb.sample config/initializers/secret_token.rb
- $ vi config/application.yml # CiNiiのアプリケーションIDを記入する
- $ vi config/initializers/secret_token.rb # "change this"を30文字以上のランダムな文字に置き換える
- $ rails s
-
-この状態で、 http://localhost:3000 にアクセスしてください。
-
-== 製作者
-* {TANABE, Kosuke (@nabeta)}[https://github.com/nabeta]
+This project rocks and uses MIT-LICENSE.

@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def title
+  def we6cat_title
     return nil unless @books
     case controller.action_name
     when 'index'
