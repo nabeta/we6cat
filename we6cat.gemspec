@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.name        = "we6cat"
   s.version     = We6cat::VERSION
   s.authors     = ["Kosuke Tanabe"]
-  s.email       = ["TODO: Your email"]
+  s.email       = ["tanabe@mwr.mediacom.keio.ac.jp"]
   s.homepage    = "https://github.com/nabeta/we6cat"
   s.summary     = "We6cat"
   s.description = "an alternative user interface for Next-L Enju"
