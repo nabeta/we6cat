@@ -12,7 +12,7 @@ NACSIS Webcatのインターフェースを、CiNii BooksのWebAPIを使って�
 
 == インストール
 
-Ruby 1.9.3以上、Ruby on Rails 3.2.12以上を必要とします。
+Ruby 1.9.3以上、Ruby on Rails 3.2.19以上を必要とします。
 
  $ git clone git://github.com/nabeta/we6cat.git
  $ cd we6cat
