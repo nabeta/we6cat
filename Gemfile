@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 3.2.19'
+gem 'rails', '~> 3.2.20'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 #gem 'sqlite3'
-gem 'nokogiri'
+gem 'nokogiri', '~> 1.6.3'
 gem 'kaminari', '~> 0.15.1'
 gem 'dalli'
 gem 'turbolinks'
