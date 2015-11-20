@@ -19,7 +19,8 @@ Ruby 1.9.3以上、Ruby on Rails 3.2.19以上を必要とします。
  $ bundle install
  $ cp config/application.yml.sample config/application.yml
  $ cp config/initializers/secret_token.rb.sample config/initializers/secret_token.rb
- $ vi config/application.yml # CiNiiのアプリケーションIDを記入する
+ $ cp .env.sample .env
+ $ vi .env # CiNiiのアプリケーションIDを記入する
  $ vi config/initializers/secret_token.rb # "change this"を30文字以上のランダムな文字に置き換える
  $ rails s
 

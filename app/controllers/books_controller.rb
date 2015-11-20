@@ -14,7 +14,7 @@ class BooksController < ApplicationController
       url += "&pub_year=#{params[:pub_year]}"
       url += "&type=#{params[:type]}"
       url += "&p=#{page}"
-      url += "&appid=#{YAML.load(open("#{Rails.root.to_s}/config/application.yml").read)['cinii']['appid']}"
+      url += "&appid=#{ENV['CINII_APP_ID']}"
 
       doc = Nokogiri::XML(open(URI.encode(url)))
       books = doc.xpath('//xmlns:item').map{|e| Book.new(e)}
