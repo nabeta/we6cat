@@ -6,7 +6,7 @@ gem 'rails', '~> 3.2.22'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 #gem 'sqlite3'
-gem 'nokogiri', '~> 1.6.3'
+gem 'nokogiri', '~> 1.6.7'
 gem 'kaminari', '~> 0.16.3'
 gem 'dalli'
 gem 'turbolinks'
